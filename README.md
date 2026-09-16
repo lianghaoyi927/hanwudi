@@ -5,10 +5,10 @@
 
 | 姓名   | 负责模块        | GitHub 用户名 |
 |--------|----------------|---------------|
-| 张三   | 机械结构 / 文档 | @zhangsan     |
-| 李四   | 电机控制代码    | @lisi         |
-| 王五   | 传感器 / 视觉   | @wangwu       |
-| 你     | 主控 / 仓库管理 | @yourname     |
+| 刘宸宇、胡惠婕   | 机械结构 / 设计 | @liuchenyu @huhuijie     |
+| 刘常兴、刘俊旭 | 电机控制代码    | @liuchangxing @liujunxu       |
+| 刘俊旭、梁皓贻   | 程序 / 视觉   | @liujunxu @lianghaoyi      |
+| 梁皓贻     | 主控 / 仓库管理 | @lianghaoyi     |
 
 ## 目录说明
 
