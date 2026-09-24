@@ -1,9 +1,9 @@
 # 9.22学习进度
 ## 1.自己照着草图搓了一个枪哈哈
-![1](images/1.jpg)
+![1](images/2.1.jpg)
 ## 2.学习了拉伸凸台基体等技巧
-![2](images/2.jpg)
-![4](images/4.jpg)
+![2](images/2.2.jpg)
+![4](images/2.4.jpg)
 ## 3.学习如何构建旋转凸台基体，以及弹簧的绘制
-![3](images/3.jpg)
+![3](images/2.3.jpg)
 发现比赛官方更推荐fusion360,遂决定暂时搁置对solidworks的学习，以后有时间就两个一起学吧
