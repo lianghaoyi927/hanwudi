@@ -32,5 +32,5 @@ Keil 点击 Load 下载，报错 `Flash Download failed - Could not load file`
 - 解决方案：分清公头母头，ST‑Link 是金属公排针，需要母头杜邦线套上去；插头垂直对准，不要斜着硬怼，防止掰弯引脚。
 
 
-![1](pictures/e1.1.jpg)
-![1](pictures/e1.2.jpg)
+![图片1](pictures/e1.1.jpg)
+![图片2](pictures/e1.2.jpg)
