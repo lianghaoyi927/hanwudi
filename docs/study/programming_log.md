@@ -16,6 +16,7 @@ img=cv2.imread('./img.png')
 
 
 ![图片1](images/程序1.png)
+
 3. 可以正确显示图片
 ```python
 cv2.show('image',img)   
