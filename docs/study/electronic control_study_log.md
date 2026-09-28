@@ -12,6 +12,7 @@
 RCC->APB2ENR = 0x00000010;   // 开启GPIOC端口时钟
 GPIOC->CRH   = 0x00300000;   // 配置PC13引脚为推挽输出
 GPIOC->ODR   = 0x00002000;   // PC13输出高电平
+```
 # STM32寄存器点灯实验要点整理
 理解寄存器赋值中十六进制`0x`数值的含义，本质是二进制位开关，1代表开启、0代表关闭，能够读懂每一行寄存器配置对应的硬件动作。
 
@@ -31,5 +32,5 @@ Keil 点击 Load 下载，报错 `Flash Download failed - Could not load file`
 - 解决方案：分清公头母头，ST‑Link 是金属公排针，需要母头杜邦线套上去；插头垂直对准，不要斜着硬怼，防止掰弯引脚。
 
 
-![1](pictures/e1.1.png)
-![1](pictures/e1.2.png)
+![图片1](images/e1.1.jpg)
+![图片2](images/e1.2.jpg)
