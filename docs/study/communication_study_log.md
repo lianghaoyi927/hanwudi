@@ -33,3 +33,67 @@ C1(10µF) 与 C2(100nF) 并联在电源和GND之间滤波。
 - [ ] 修改 `test_loop.py` 脚本文件，完成一键自动收发。
 - [ ] 尝试别的路径下载com0com，用serial本地回环太复杂，后面和电控沟通代码会很麻烦。
 - [ ] 与电控同学确定波特率和数据帧还有常用指令，准备与电控队友进行真实串口联调。
+
+
+
+
+# 9.27串口学习内容
+# Python 串口通信测试代码（虚拟串口 COM8 ↔ COM9）
+
+## 环境说明
+- 虚拟串口软件：VSPD（Virtual Serial Port Driver）
+- 虚拟端口对：COM8（发送端）、COM9（接收端）
+- 波特率：9600
+- Python 库：pyserial
+- 运行环境：PyCharm（或任意 Python 环境）
+
+---
+
+## 一、发送端代码（脚本1.py）
+
+```python
+import serial
+import time
+
+# 打开 COM8 发送数据
+try:
+    ser = serial.Serial('COM8', 9600, timeout=1)
+    print("COM8 已打开，开始发送数据...")
+
+    while True:
+        ser.write(b'Hello from COM8!\n')
+        print("已发送: Hello from COM8!")
+        time.sleep(1)  # 每秒发一次
+
+except serial.SerialException as e:
+    print(f"打开 COM8 失败: {e}")
+except KeyboardInterrupt:
+    print("\n发送停止。")
+    if 'ser' in locals() and ser.is_open:
+        ser.close()
+```
+## 二、接收端代码（脚本2.py）
+
+```python
+import serial
+
+# 打开 COM9 接收数据
+try:
+    ser = serial.Serial('COM9', 9600, timeout=1)
+    print("COM9 已打开，等待接收数据...")
+
+    while True:
+        if ser.in_waiting > 0:
+            data = ser.read(ser.in_waiting)
+            print(f"COM9 收到: {data}")
+
+except serial.SerialException as e:
+    print(f"打开 COM9 失败: {e}")
+except KeyboardInterrupt:
+    print("\n接收停止。")
+    if 'ser' in locals() and ser.is_open:
+        ser.close()
+```
+## 三、注意事项
+- 打开串口的代码必须放在**try 块**中，捕获 SerialException，否则程序容易闪退。
+- 虚拟串口的端口号在不同电脑上可能不同，使用前务必去“设备管理器 → 端口 (COM 和 LPT)”**确认实际端口号**，并**同步修改代码**。
