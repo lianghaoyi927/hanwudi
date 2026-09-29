@@ -43,14 +43,19 @@ Fusion360难受死了，什么叫用了矩阵就没法标注尺寸？不标尺�
 # 9月28日进度
 练习如何建造实体的各种功能，如构造平面，旋转，扫掠，筋等
 ## 1旋转
-
+![旋转1](images/hu4.1.jpg)
+![旋转2](images/hu4.2.jpg)
 ## 2筋
-
+![筋](images/hu4.3.jpg)
 ## 3 浮雕
-
+![浮雕](images/hu4.4.jpg)
 
 ## 4实体练习
-
+![浮雕1](images/hu4.5.jpg)
+![浮雕2](images/hu4.6.jpg)
+![浮雕3](images/hu4.7.jpg)
+![浮雕4](images/hu4.8.jpg)
+---
 
 
 
