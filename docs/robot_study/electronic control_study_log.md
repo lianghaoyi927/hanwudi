@@ -34,3 +34,53 @@ Keil 点击 Load 下载，报错 `Flash Download failed - Could not load file`
 
 ![图片1](images/e1.1.jpg)
 ![图片2](images/e1.2.jpg)
+
+---
+
+## 9.29
+### 1. 工程文件结构
+- Library文件夹：ST官方提供的外设工具代码包。
+  - stm32f10x_gpio.c：引脚控制工具；stm32f10x_rcc.c：外设电源控制工具；其余为串口、定时器等外设工具。
+- User文件夹（用户操作台）
+  - main.c：主程序文件，单片机上电从此处开始执行，编写业务逻辑。
+  - stm32f10x_conf.h：库外设勾选清单，用来开启/关闭需要使用的外设库。
+  - stm32f10x_it.c / stm32f10x_it.h：中断应急处理文件，点灯实验无需修改。
+- startup_stm32f10x_md.s：启动汇编文件，单片机上电最先执行。
+
+### 2. 宏定义 #define
+宏定义是给复杂数字、寄存器地址起外号，编译前做文本替换。
+作用：
+1. 提升代码可读性，用易懂名字代替十六进制数字；
+2. 修改参数只改一行，所有引用位置同步更新；
+3. 充当代码开关，控制代码是否参与编译。
+> Keil C/C++选项卡中 `USE_STDPERIPH_DRIVER` 是库函数工程总开关宏，定义后才会加载stm32f10x_conf.h，才能正常使用库函数。
+
+### 3. Keil工程关键配置
+1. Preprocessor Symbols：Define填写`USE_STDPERIPH_DRIVER`，启用标准外设库。
+2. Include Paths：头文件搜索路径，告诉编译器去哪里查找.h头文件。
+3. Optimization 优化等级 Level 0(-O0)：关闭代码优化，适合新手调试。
+4. Output选项勾选Create HEX File：生成烧录用的hex文件。
+> 工程存放路径不能包含中文、空格，否则下载会出现Flash Download failed报错。
+
+### 4. 点灯代码逻辑
+执行顺序口诀：**先开时钟，再配引脚，设置电平，循环停留**
+1. `RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);`
+开启GPIOC外设时钟，给硬件模块上电。
+⚠️ 区分：`RCC_APB2PeriphResetCmd`仅做外设复位（恢复出厂），**不能上电**。
+2. GPIO_InitTypeDef：GPIO配置表格，填写引脚模式、引脚号、引脚速度；调用GPIO_Init使配置生效。
+3. 引脚电平控制：
+- GPIO_SetBits：输出高电平，PC13板载LED熄灭
+- GPIO_ResetBits：输出低电平，PC13板载LED点亮
+> PC13板载LED特性：高电平熄灭、低电平点亮
+4. while(1)死循环：程序停留，维持当前引脚电平。
+
+### 5. 实验踩坑记录
+故障现象：代码编译无报错，下载后LED不亮
+根本原因：只写外设复位函数，**没有开启GPIOC外设时钟**，外设断电，所有GPIO配置无效。
+附加坑：单片机运行速度极快，连续切换高低电平，变化太快，人眼无法观察灯光变化。
+
+### 6. 底层基础概念
+寄存器本质：二进制位开关，1代表开启，0代表关闭，通过读写寄存器可以直接控制硬件。
+
+
+![1](images/e2.1.png)
