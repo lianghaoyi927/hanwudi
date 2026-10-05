@@ -497,12 +497,31 @@ except KeyboardInterrupt:
 
 ---
 
-**文档结束**
+## 开源项目及工具使用声明
+
+本作品在开发过程中使用了以下开源库、官方工具及辅助工具，在此郑重声明：
+
+### 1. 开源库依赖（Python端）
+| 名称 | 版本 | 许可证 | 用途 | 项目地址 |
+|---|---|---|---|---|
+| pyserial | 3.5 | BSD-3-Clause | 用于上位机（Python）与下位机（STM32）之间的串口通信 | https://github.com/pyserial/pyserial |
+
+### 2. 官方工具及底层库依赖（STM32端）
+| 名称 | 版本 | 许可证/性质 | 用途 | 项目地址 |
+|---|---|---|---|---|
+| STM32CubeMX | 6.x | 官方免费工具 | 用于配置 STM32F103C8T6 的外设（USART、GPIO）并生成初始化代码 | https://www.st.com/en/development-tools/stm32cubemx.html |
+| STM32Cube HAL 库 | 1.8.x | BSD-3-Clause | 电控端底层的串口中断收发及 GPIO 控制驱动库 | https://github.com/STMicroelectronics/stm32f1xx-hal-driver |
+
+### 3. AI 辅助工具说明
+本作品在代码编写及调试过程中，使用了 AI 大模型（如 DeepSeek、ChatGPT）辅助生成部分测试代码与逻辑排查。所有由 AI 辅助生成的代码，均由团队成员在本地环境进行逐行调试、功能验证与逻辑修改，最终代码的架构设计、协议制定、硬件联调及稳定性测试均由本团队独立完成。
+
+**团队成员签名：** 梁皓贻、刘常兴  
+**日期：** 2026年10月
 
 **记录人：** 梁皓贻  刘常兴
 **审核：** 梁皓贻  刘常兴
 **日期：** 2026年10月  
-**版本：** V1.0
+**版本：** V2.0
 
 
 
