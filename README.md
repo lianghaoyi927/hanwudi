@@ -6,7 +6,7 @@
 | 姓名   | 负责模块        | GitHub 用户名 |
 |--------|----------------|---------------|
 | 刘宸宇、胡惠婕   | 机械结构 / 设计 | @liuchenyu @huhuijie     |
-| 刘常兴、刘俊旭 | 电机控制代码    | @liuchangxing @liujunxu       |
+| 刘常兴、梁皓贻 | 电机控制代码    | @liuchangxing @liujunxu       |
 | 刘俊旭、梁皓贻   | 程序 / 视觉   | @liujunxu @lianghaoyi      |
 | 梁皓贻     | 主控 / 仓库管理 | @lianghaoyi     |
 
